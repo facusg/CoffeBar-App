@@ -46,19 +46,17 @@ const loginPut = async (req = request, res = response) => {
   res.json(usuario);
 };
 
-const loginDelete = async (req, res = response) => {
+const userDelete = async (req, res = response) => {
   const { id } = req.params;
-  // Fisicamente lo borramos
-  // const usuario = await Usuario.findByIdAndDelete(id);
 
   const usuario = await Usuario.findByIdAndUpdate(id, { estado: false });
 
-  res.json({ msg: "DELETE API - Controlador", id });
+  res.json({ usuario });
 };
 
 module.exports = {
   loginGet,
   loginPost,
   loginPut,
-  loginDelete,
+  userDelete,
 };
