@@ -37,6 +37,15 @@ const existeProductoPorId = async (id) => {
     throw new Error(`El id no existe en la base de datos`);
   }
 };
+const coleccionesPermitidas = async (coleccion = "", colecciones = []) => {
+  const incluida = colecciones.includes(coleccion);
+  if (!incluida) {
+    throw new Error(
+      `La colecion ${coleccion} no es permitidas, ${colecciones}`
+    );
+  }
+  return true;
+};
 
 module.exports = {
   esRoleValido,
@@ -44,4 +53,5 @@ module.exports = {
   existeUsuarioPorId,
   existeCategoriaPorId,
   existeProductoPorId,
+  coleccionesPermitidas,
 };
