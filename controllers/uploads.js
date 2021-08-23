@@ -4,8 +4,6 @@ const fs = require("fs");
 const cloudinary = require("cloudinary").v2;
 cloudinary.config(process.env.CLOUDINARY_URL);
 
-console.log(process.env.CLOUDINARY_URL);
-
 const { response } = require("express");
 const { subirArchivo } = require("../helpers");
 
@@ -162,9 +160,8 @@ const actualizarImagenCloudinary = async (req, res = response) => {
   }
 
   //Subir nueva imagen a cloudinary
-  const { secure_url } = await cloudinary.uploader.upload(
-    req.files.archivo.tempFilePath
-  );
+  const { tempFilePath } = req.files.archivo;
+  const { secure_url } = await cloudinary.uploader.upload(tempFilePath);
   modelo.img = secure_url;
 
   await modelo.save();
