@@ -1,5 +1,16 @@
 
-## Quick guide
+## Nodejs Rest Server
+   ### Tecnologias usadas
+   * Node js
+   * Express
+   * MongoDB
+   * NPM
+
+
+   ### Documentacion completa de los Endpoints 
+* [Documentacion Postman](https://documenter.getpostman.com/view/16728392/Tzz5tdqr#481841be-c738-4bda-8d1e-be3c17c626bb)
+
+
 ## Endpoints
 
 ### Authentication
